@@ -1,0 +1,40 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+	<div class="row">
+
+		<header class="jumbotron col-md-12 m-1">
+			<div class="container">
+			  <h1 class="display-4">Assets</h1>
+			  <p class="lead">Search, Add and Edit by Asset.</p>
+			  <hr class="my-4">
+			  <p>Upload a picture and we'll embroid it for you!</p>
+			  <a class="btn btn-primary btn-lg" href="/asset/new" role="button">Add an asset!</a>
+			</div>
+		</header>
+	  
+	</div>
+</div>
+
+<div class="container">
+	<div class="row" style='display: flex; flex: wrap;'> <!-- 2nd ROW --> 
+
+		<div class="col-12 my-5">
+			<h3>Our Most Popular Artwork</h3>
+		</div>
+		<% images.forEach((p)=>{ %>
+
+			<div class="cardgone card col-sm-6 col-md-3 col-lg-4 my-2" style="width: 18rem;">
+	  			<img src="<%= p.img %>" class="card-img-top mt-3" alt="...">
+	  			<div class="card-body">
+	   			<p class="card-text"><%= p.name %></p>
+	   			<p class="card-text"><%= p.desc %></p>
+	 			</div>
+	 			<a class='btn btn-sm btn-primary' href='/gallery/<%= p._id %>'>Show More</a>
+			</div>
+
+		<% }) %>
+	</div><!-- end 2nd row --> 
+</div>
+
+<% include partials/header.ejs %>
